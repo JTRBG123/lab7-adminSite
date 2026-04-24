@@ -13,12 +13,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
 //setting up database connection pool, replace values in red
 const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    connectionLimit: Number(process.env.DB_CONNECTION_LIMIT || 10),
-    waitForConnections: true
+  host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT || 3306),
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  connectionLimit: Number(process.env.DB_CONNECTION_LIMIT || 10),
+  waitForConnections: true
 });
 
 //setting sessions
@@ -409,8 +410,10 @@ async function ensureAdminCredentials() {
 
 async function startServer() {
   await ensureAdminCredentials();
-  app.listen(3000, () => {
-    console.log('Express server running');
+
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Express server running on port ${PORT}`);
   });
 }
 
