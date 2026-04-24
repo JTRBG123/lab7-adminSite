@@ -1,0 +1,42 @@
+:root {
+  --ink: #12263a;
+  --paper: #f7fbff;
+  --accent: #0d6efd;
+  --soft: #dfeffc;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(13, 110, 253, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(25, 135, 84, 0.14), transparent 35%),
+    linear-gradient(135deg, #f8fbff, #eef5ff 60%, #e9f3ff);
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+.nav-shell {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid #d6e4f4;
+  backdrop-filter: blur(6px);
+}
+
+.soft-card {
+  border: 1px solid #d7e4f6;
+  box-shadow: 0 8px 20px rgba(24, 45, 74, 0.08);
+}
+
+.login-shell {
+  min-height: 80vh;
+}
+
+.login-card {
+  max-width: 460px;
+  width: 100%;
+  border: 1px solid #d7e4f6;
+  box-shadow: 0 12px 24px rgba(24, 45, 74, 0.14);
+}
+
+.stat-card {
+  border: 1px solid #d7e4f6;
+  background-color: rgba(255, 255, 255, 0.92);
+}
